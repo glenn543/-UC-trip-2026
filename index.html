@@ -187,6 +187,15 @@ html, body {
   display: flex; align-items: center; justify-content: center;
   padding: 0.9rem; font-size: 11px; color: var(--ink-muted); gap: 6px;
 }
+.weather-wrap { position: relative; margin-bottom: 1.2rem; }
+.weather-banner { margin-bottom: 0; }
+.weather-fade {
+  position: absolute; top: 0; right: 0; bottom: 0; width: 52px;
+  background: linear-gradient(to right, transparent, var(--paper-card));
+  border-radius: 0 14px 14px 0;
+  pointer-events: none;
+  transition: opacity 0.25s;
+}
 
 .intro-days-list { display: flex; flex-direction: column; gap: 7px; }
 .intro-day-row {
@@ -504,9 +513,12 @@ html, body {
       <div class="overview-card"><div class="overview-num">7</div><div class="overview-label">城市</div></div>
       <div class="overview-card"><div class="overview-num">CI</div><div class="overview-label">中華航空</div></div>
     </div>
-    <div class="weather-banner" id="weatherBanner">
-      <div class="weather-empty" id="weatherEmpty"><span>⏳</span> 天氣資料載入中…</div>
-      <div class="weather-strip" id="weatherStrip" style="display:none;"></div>
+    <div class="weather-wrap">
+      <div class="weather-banner" id="weatherBanner">
+        <div class="weather-empty" id="weatherEmpty"><span>⏳</span> 天氣資料載入中…</div>
+        <div class="weather-strip" id="weatherStrip" style="display:none;"></div>
+      </div>
+      <div class="weather-fade" id="weatherFade"></div>
     </div>
     <div class="intro-days-list">
       <div class="intro-day-row" onclick="goTo(1)">
@@ -986,6 +998,10 @@ async function fetchDay(entry) {
   } catch(_) {
     empty.innerHTML = '';
   }
+  const fade = document.getElementById('weatherFade');
+  document.getElementById('weatherBanner').addEventListener('scroll', function() {
+    fade.style.opacity = (this.scrollLeft + this.clientWidth >= this.scrollWidth - 4) ? '0' : '1';
+  });
 })();
 
 function openImg(url) {
