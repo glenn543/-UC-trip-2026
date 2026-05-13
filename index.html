@@ -169,6 +169,7 @@ html, body {
 .weather-day-date { font-size: 9px; font-weight: 500; color: var(--red); letter-spacing: 0.04em; margin-bottom: 1px; }
 .weather-day-city { font-size: 9px; color: var(--ink-muted); margin-bottom: 4px; }
 .weather-day-icon { font-size: 20px; line-height: 1; margin-bottom: 4px; }
+.weather-day-icon img { width: 30px; height: auto; display: block; margin: 0 auto; }
 .weather-day-temp { font-size: 10px; color: var(--ink-soft); white-space: nowrap; }
 .weather-day-temp strong { color: var(--ink); font-weight: 600; }
 .weather-empty {
@@ -948,6 +949,12 @@ const TRIP_DAYS = [
   { date:'5/23', city:'松山', lat:33.8392, lon:132.7657, d:'2026-05-23' },
   { date:'5/24', city:'三原', lat:34.3974, lon:133.0785, d:'2026-05-24' },
 ];
+const JMA_CODE = {
+  '廣島': 340010, '吳市': 340010, '宮島': 340010,
+  '尾道': 340020, '三原': 340020,
+  '大三島': 380020,
+  '松山': 380010,
+};
 function wmoEmoji(c) {
   if (c===0) return '☀️';
   if (c<=3)  return '⛅';
@@ -964,6 +971,19 @@ async function fetchDay(entry) {
   const j = await r.json();
   return { ...entry, code: j.daily.weathercode[0], max: Math.round(j.daily.temperature_2m_max[0]), min: Math.round(j.daily.temperature_2m_min[0]) };
 }
+async function fetchJMA() {
+  const uniqueCodes = [...new Set(Object.values(JMA_CODE))];
+  const map = {};
+  await Promise.all(uniqueCodes.map(async code => {
+    try {
+      const r = await fetch(`https://weather.tsukumijima.net/api/forecast/city/${code}`);
+      if (!r.ok) return;
+      const j = await r.json();
+      j.forecasts.forEach(f => { map[`${code}_${f.date}`] = f; });
+    } catch(_) {}
+  }));
+  return map;
+}
 function renderWeather(days) {
   const empty = document.getElementById('weatherEmpty');
   const strip = document.getElementById('weatherStrip');
@@ -971,21 +991,37 @@ function renderWeather(days) {
     <div class="weather-day">
       <div class="weather-day-date">${d.date}</div>
       <div class="weather-day-city">${d.city}</div>
-      <div class="weather-day-icon">${wmoEmoji(d.code)}</div>
-      <div class="weather-day-temp"><strong>${d.max}°</strong> / ${d.min}°</div>
+      <div class="weather-day-icon">${d.iconHtml}</div>
+      <div class="weather-day-temp"><strong>${d.max != null ? d.max+'°' : '--'}</strong> / ${d.min != null ? d.min+'°' : '--'}</div>
     </div>`).join('');
   empty.style.display = 'none';
   strip.style.display = 'flex';
 }
 async function loadWeather() {
-  const CACHE_KEY = 'weather-2026';
+  const CACHE_KEY = 'weather-2026-v3';
   const TTL = 6 * 60 * 60 * 1000;
   try {
     const cached = JSON.parse(localStorage.getItem(CACHE_KEY) || 'null');
     if (cached && Date.now() - cached.ts < TTL) { renderWeather(cached.data); return; }
   } catch(_) {}
   try {
-    const days = await Promise.all(TRIP_DAYS.map(fetchDay));
+    const [omDays, jmaMap] = await Promise.all([
+      Promise.all(TRIP_DAYS.map(fetchDay)),
+      fetchJMA()
+    ]);
+    const days = omDays.map(d => {
+      const jmaCode = JMA_CODE[d.city];
+      const jma = jmaCode ? jmaMap[`${jmaCode}_${d.d}`] : null;
+      if (jma) {
+        const iconHtml = jma.image?.url
+          ? `<img src="${jma.image.url}" alt="${jma.telop}">`
+          : wmoEmoji(d.code);
+        const max = jma.temperature?.max?.celsius != null ? Math.round(Number(jma.temperature.max.celsius)) : d.max;
+        const min = jma.temperature?.min?.celsius != null ? Math.round(Number(jma.temperature.min.celsius)) : d.min;
+        return { ...d, iconHtml, max, min, source: 'jma' };
+      }
+      return { ...d, iconHtml: wmoEmoji(d.code), source: 'om' };
+    });
     try { localStorage.setItem(CACHE_KEY, JSON.stringify({ ts: Date.now(), data: days })); } catch(_) {}
     renderWeather(days);
   } catch(_) {
