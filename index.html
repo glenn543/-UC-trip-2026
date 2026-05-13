@@ -919,6 +919,7 @@ pagerOuter.addEventListener('touchstart', e => {
 }, { passive: true });
 
 pagerOuter.addEventListener('touchmove', e => {
+  if (current === 0) return;
   const dx = e.touches[0].clientX - startX;
   const dy = e.touches[0].clientY - startY;
   if (isH === null && (Math.abs(dx) > 6 || Math.abs(dy) > 6)) {
@@ -1013,7 +1014,7 @@ const fade = document.getElementById('weatherFade');
 document.getElementById('weatherBanner').addEventListener('scroll', function() {
   fade.style.opacity = (this.scrollLeft + this.clientWidth >= this.scrollWidth - 4) ? '0' : '1';
 });
-(window.requestIdleCallback || (cb => setTimeout(cb, 1500)))(loadWeather);
+loadWeather();
 
 function openImg(url) {
   document.getElementById('lightboxImg').src = url;
