@@ -156,15 +156,38 @@ html, body {
   gap: 8px; margin-bottom: 1.2rem;
 }
 .overview-card {
-  background: var(--paper-card); border: 1px solid var(--border);
-  border-radius: 14px; padding: 0.9rem 0.5rem 0.7rem;
-  box-shadow: var(--shadow-sm); text-align: center;
+  text-align: center; padding: 0.5rem 0.3rem;
 }
 .overview-num {
   font-family: 'Shippori Mincho', serif; font-size: 28px;
   font-weight: 800; color: var(--red); line-height: 1; margin-bottom: 3px;
 }
 .overview-label { font-size: 10px; color: var(--ink-soft); letter-spacing: 0.04em; }
+
+/* ── WEATHER BANNER ── */
+.weather-banner {
+  background: var(--paper-card); border: 1px solid var(--border);
+  border-radius: 14px; margin-bottom: 1.2rem;
+  overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none;
+}
+.weather-banner::-webkit-scrollbar { display: none; }
+.weather-strip { display: flex; min-width: max-content; }
+.weather-day {
+  display: flex; flex-direction: column; align-items: center;
+  padding: 0.65rem 0.9rem; border-right: 1px solid var(--border);
+  min-width: 60px;
+}
+.weather-day:last-child { border-right: none; }
+.weather-day-date { font-size: 9px; font-weight: 500; color: var(--red); letter-spacing: 0.04em; margin-bottom: 1px; }
+.weather-day-city { font-size: 9px; color: var(--ink-muted); margin-bottom: 4px; }
+.weather-day-icon { font-size: 20px; line-height: 1; margin-bottom: 4px; }
+.weather-day-temp { font-size: 10px; color: var(--ink-soft); white-space: nowrap; }
+.weather-day-temp strong { color: var(--ink); font-weight: 600; }
+.weather-empty {
+  display: flex; align-items: center; justify-content: center;
+  padding: 0.9rem; font-size: 11px; color: var(--ink-muted); gap: 6px;
+}
+
 .intro-days-list { display: flex; flex-direction: column; gap: 7px; }
 .intro-day-row {
   display: flex; align-items: center; gap: 12px;
@@ -480,6 +503,10 @@ html, body {
       <div class="overview-card"><div class="overview-num">7</div><div class="overview-label">夜</div></div>
       <div class="overview-card"><div class="overview-num">7</div><div class="overview-label">城市</div></div>
       <div class="overview-card"><div class="overview-num">CI</div><div class="overview-label">中華航空</div></div>
+    </div>
+    <div class="weather-banner" id="weatherBanner">
+      <div class="weather-empty" id="weatherEmpty"><span>⏳</span> 天氣資料載入中…</div>
+      <div class="weather-strip" id="weatherStrip" style="display:none;"></div>
     </div>
     <div class="intro-days-list">
       <div class="intro-day-row" onclick="goTo(1)">
@@ -914,6 +941,52 @@ if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('./sw.js').catch(() => {});
   });
 }
+
+// ── WEATHER ──
+const TRIP_DAYS = [
+  { date:'5/17', city:'廣島', lat:34.3853, lon:132.4553, d:'2026-05-17' },
+  { date:'5/18', city:'吳市', lat:34.2498, lon:132.5639, d:'2026-05-18' },
+  { date:'5/19', city:'宮島', lat:34.2962, lon:132.3196, d:'2026-05-19' },
+  { date:'5/20', city:'尾道', lat:34.4076, lon:133.2014, d:'2026-05-20' },
+  { date:'5/21', city:'大三島', lat:34.262,  lon:133.002,  d:'2026-05-21' },
+  { date:'5/22', city:'松山', lat:33.8392, lon:132.7657, d:'2026-05-22' },
+  { date:'5/23', city:'松山', lat:33.8392, lon:132.7657, d:'2026-05-23' },
+  { date:'5/24', city:'三原', lat:34.3974, lon:133.0785, d:'2026-05-24' },
+];
+function wmoEmoji(c) {
+  if (c===0) return '☀️';
+  if (c<=3)  return '⛅';
+  if (c<=48) return '🌫️';
+  if (c<=55) return '🌦️';
+  if (c<=65) return '🌧️';
+  if (c<=77) return '❄️';
+  if (c<=82) return '🌦️';
+  return '⛈️';
+}
+async function fetchDay(entry) {
+  const url = `https://api.open-meteo.com/v1/forecast?latitude=${entry.lat}&longitude=${entry.lon}&daily=weathercode,temperature_2m_max,temperature_2m_min&timezone=Asia%2FTokyo&start_date=${entry.d}&end_date=${entry.d}`;
+  const r = await fetch(url);
+  const j = await r.json();
+  return { ...entry, code: j.daily.weathercode[0], max: Math.round(j.daily.temperature_2m_max[0]), min: Math.round(j.daily.temperature_2m_min[0]) };
+}
+(async () => {
+  const empty = document.getElementById('weatherEmpty');
+  const strip = document.getElementById('weatherStrip');
+  try {
+    const days = await Promise.all(TRIP_DAYS.map(fetchDay));
+    strip.innerHTML = days.map(d => `
+      <div class="weather-day">
+        <div class="weather-day-date">${d.date}</div>
+        <div class="weather-day-city">${d.city}</div>
+        <div class="weather-day-icon">${wmoEmoji(d.code)}</div>
+        <div class="weather-day-temp"><strong>${d.max}°</strong> / ${d.min}°</div>
+      </div>`).join('');
+    empty.style.display = 'none';
+    strip.style.display = 'flex';
+  } catch(_) {
+    empty.innerHTML = '';
+  }
+})();
 
 function openImg(url) {
   document.getElementById('lightboxImg').src = url;
