@@ -771,7 +771,7 @@ html, body {
     <div class="day-badge"><span class="day-badge-date">5/18</span><span class="day-badge-day">MON</span></div>
     <div class="day-header-text"><div class="day-num-label">Day 2</div><h2 class="day-title">Mazda 博物館 → 吳市</h2><span class="day-region-badge r-kure">廣島市 / 吳市</span><a class="map-link" href="https://www.google.com/maps/d/u/0/edit?mid=1fEkGLdQ9jO81khaHCx7vAYxyTFRDLJo&hl=zh-TW&ll=34.37340353991851%2C132.93510067125715&z=12" target="_blank">🗺 地圖</a></div>
   </div>
-  <div class="transport-bar"><span class="transport-icon">🚗</span>廣島市區 → Mazda 本社（電車至向洋站）→ 吳市（JR 呉線約 30 分）</div>
+  <div class="transport-bar"><span class="transport-icon">🚆</span><a href="#" onclick="openHtmlModal('tpl-kure-route');return false;" style="color:inherit;">廣島市區 → Mazda 本社（電車至向洋站）→ 吳市（JR 呉線約 30 分）</a></div>
   <div class="hotel-card"><div class="hotel-icon-wrap">🏨</div><div><div class="hotel-name">Quintessa Hotel 広島銀山町（連住）</div><div class="hotel-addr">〒730-0022 広島県広島市中区銀山町10-17</div><a class="hotel-map-link" href="https://maps.google.com/?q=Quintessa+Hotel+Hiroshima+Ginzanmachi" target="_blank"><svg viewBox="0 0 24 24" fill="#4285f4" width="12" height="12"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>Google Maps</a></div></div>
   <div class="section-label">景點行程</div>
   <div class="spots-grid">
@@ -1172,6 +1172,29 @@ function closeHtmlModal() {
       <div class="tf-label">渡輪 Ferry（JR Pass 可搭）</div>
       <div class="tf-route">廣電宮島口 → 宮島</div>
       <div class="tf-meta">13:00 / 13:10 船班 ｜ 約 10 MIN</div>
+    </div>
+  </div>
+</div>
+
+<div id="tpl-kure-route" style="display:none">
+  <div class="tf-flow">
+    <div class="tf-step tf-orange">
+      <div class="tf-label">出門</div>
+      <div class="tf-route">9:00 前往 JR 廣島站</div>
+    </div>
+    <div class="tf-arrow"><svg width="14" height="20" viewBox="0 0 14 20" fill="none"><path d="M2 2L7 8L12 2" stroke="#94a3b8" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M2 10L7 16L12 10" stroke="#94a3b8" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+    <div class="tf-step tf-blue">
+      <div class="tf-label">JR 山陽本線（往糸崎方向）</div>
+      <div class="tf-route">廣島駅 9:20 → 向洋駅</div>
+      <div class="tf-meta">約 10 MIN ｜ Mazda 本社徒步 5 分</div>
+    </div>
+
+    <div class="tf-divider">前往吳市</div>
+
+    <div class="tf-step tf-blue">
+      <div class="tf-label">JR 呉線</div>
+      <div class="tf-route">廣島駅 → 吳駅</div>
+      <div class="tf-meta">約 30 MIN</div>
     </div>
   </div>
 </div>
