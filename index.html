@@ -878,7 +878,7 @@ function goTo(n) {
   headerDayLabel.textContent = panels[n].dataset.label || '';
   headerTitleText.textContent = panels[n].dataset.title || '';
   prevBtn.disabled = n === 0;
-  nextBtn.disabled = n === TOTAL - 1;
+  nextBtn.disabled = n === 0 || n === TOTAL - 1;
 }
 
 prevBtn.addEventListener('click', () => goTo(current - 1));
