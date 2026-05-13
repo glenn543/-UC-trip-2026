@@ -835,7 +835,7 @@ html, body {
     <div class="day-badge" style="background:var(--red);"><span class="day-badge-date">5/21</span><span class="day-badge-day">THU</span></div>
     <div class="day-header-text"><div class="day-num-label">Day 5</div><h2 class="day-title">尾道 → 松山 渡輪之旅 🚢</h2><span class="day-region-badge r-shimanami">尾道 → 大三島</span><a class="map-link" href="https://www.google.com/maps/d/u/0/edit?mid=1fEkGLdQ9jO81khaHCx7vAYxyTFRDLJo&hl=zh-TW&ll=34.37340353991851%2C132.93510067125715&z=12" target="_blank">🗺 地圖</a></div>
   </div>
-  <div class="transport-bar"><span class="transport-icon">🚢</span>尾道前往吳港，搭石崎汽船 觀光船渡輪 到 松山觀光港</div>
+  <div class="transport-bar"><span class="transport-icon">🚢</span><a href="#" onclick="openHtmlModal('tpl-ferry-route');return false;" style="color:inherit;">尾道前往吳港，搭石崎汽船 觀光船渡輪 到 松山觀光港</a></div>
   <div class="hotel-card"><div class="hotel-icon-wrap">🏨</div><div>
     <div class="hotel-name">島宿 農と凪（大通鋪）</div>
     <div class="pickup-members-inline" style="margin-top:4px;"><span class="pickup-member-chip">Wayne</span><span class="pickup-member-chip">Joyce</span><span class="pickup-member-chip">Prolong</span><span class="pickup-member-chip">LittleHerry</span><span class="pickup-member-chip">Hoba</span><span class="pickup-member-chip">小猴</span><span class="pickup-member-chip">Glenn</span><span class="pickup-member-chip">Yao</span><span class="pickup-member-chip">Jay</span><span class="pickup-member-chip">Pei-Shan Hung</span><span class="pickup-member-chip">蝌蚪</span><span class="pickup-member-chip">曼巴</span></div>
@@ -867,7 +867,7 @@ html, body {
     <div class="day-badge"><span class="day-badge-date">5/22</span><span class="day-badge-day">FRI</span></div>
     <div class="day-header-text"><div class="day-num-label">Day 6</div><h2 class="day-title">松山自由行</h2><span class="day-region-badge r-matsuyama">今治 / 松山</span><a class="map-link" href="https://www.google.com/maps/d/u/0/edit?mid=1fEkGLdQ9jO81khaHCx7vAYxyTFRDLJo&hl=zh-TW&ll=34.37340353991851%2C132.93510067125715&z=12" target="_blank">🗺 地圖</a></div>
   </div>
-  <div class="transport-bar"><span class="transport-icon">🚌</span>大三島 → 今治巴士總站 → 伊予鐵道至松山市區（巴士+電車約 1.5hr）</div>
+  <div class="transport-bar"><span class="transport-icon">🚌</span>松山市區</div>
   <div class="hotel-card"><div class="hotel-icon-wrap">🏨</div><div><div class="hotel-name">Comfort Hotel 松山</div><div class="hotel-addr">〒790-0005 愛媛県松山市花園町3-18</div><a class="hotel-map-link" href="https://maps.google.com/?q=Comfort+Hotel+Matsuyama+Ehime" target="_blank"><svg viewBox="0 0 24 24" fill="#4285f4" width="12" height="12"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>Google Maps</a></div></div>
   <div class="section-label">景點行程</div>
   <div class="spots-grid">
@@ -1141,7 +1141,7 @@ function closeHtmlModal() {
 
 <div id="tpl-shimose-route" style="display:none">
   <div class="tf-flow">
-    <div class="tf-step tf-orange">
+    <div class="tf-step tf-paper">
       <div class="tf-label">出門</div>
       <div class="tf-route">08:10 前往 JR 廣島站</div>
     </div>
@@ -1197,6 +1197,27 @@ function closeHtmlModal() {
       <div class="tf-label">JR 呉線</div>
       <div class="tf-route">廣島駅 → 吳駅</div>
       <div class="tf-meta">約 30 MIN</div>
+    </div>
+  </div>
+</div>
+
+<div id="tpl-ferry-route" style="display:none">
+  <div class="tf-flow">
+    <div class="tf-step tf-paper">
+      <div class="tf-label">出門</div>
+      <div class="tf-route">前往尾道駅</div>
+    </div>
+    <div class="tf-arrow"><svg width="14" height="20" viewBox="0 0 14 20" fill="none"><path d="M2 2L7 8L12 2" stroke="#94a3b8" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M2 10L7 16L12 10" stroke="#94a3b8" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+    <div class="tf-step tf-blue">
+      <div class="tf-label">JR 山陽本線 + 呉線（乗換三原）</div>
+      <div class="tf-route">尾道駅 → 三原駅 → 吳駅</div>
+      <div class="tf-meta">山陽本線約 10 MIN ＋ 呉線約 60 MIN</div>
+    </div>
+    <div class="tf-arrow"><svg width="14" height="20" viewBox="0 0 14 20" fill="none"><path d="M2 2L7 8L12 2" stroke="#94a3b8" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M2 10L7 16L12 10" stroke="#94a3b8" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+    <div class="tf-step tf-green">
+      <div class="tf-label">石崎汽船 觀光船渡輪</div>
+      <div class="tf-route">吳港 → 松山觀光港</div>
+      <div class="tf-meta">約 60–70 MIN</div>
     </div>
   </div>
 </div>
