@@ -509,6 +509,14 @@ html, body {
   font-size: 12px; font-weight: 500; text-decoration: none;
   border: 1px solid #90caf9;
 }
+.tf-divider {
+  display: flex; align-items: center; gap: 8px;
+  font-size: 10px; font-weight: 600; color: var(--ink-muted);
+  letter-spacing: 0.1em; padding: 2px 0;
+}
+.tf-divider::before, .tf-divider::after {
+  content: ''; flex: 1; height: 1px; background: var(--border-mid);
+}
 
 /* ── TRAM POPUP ── */
 .tram-title { font-family: 'Shippori Mincho', serif; font-size: 22px; font-weight: 700; text-align: center; margin-bottom: 2px; }
@@ -783,7 +791,7 @@ html, body {
     <div class="day-badge"><span class="day-badge-date">5/19</span><span class="day-badge-day">TUE</span></div>
     <div class="day-header-text"><div class="day-num-label">Day 3</div><h2 class="day-title">下瀨美術館 → 宮島・嚴島神社</h2><span class="day-region-badge r-miyajima">大竹 / 宮島</span><a class="map-link" href="https://www.google.com/maps/d/u/0/edit?mid=1fEkGLdQ9jO81khaHCx7vAYxyTFRDLJo&hl=zh-TW&ll=34.37340353991851%2C132.93510067125715&z=12" target="_blank">🗺 地圖</a></div>
   </div>
-  <div class="transport-bar"><span class="transport-icon">🚗</span>廣島 → 下瀨美術館 → 宮島口 → 渡輪至宮島（JR Pass 可搭渡輪，約 10 分）</div>
+  <div class="transport-bar"><span class="transport-icon">🚗</span><a href="#" onclick="openHtmlModal('tpl-shimose-route');return false;" style="color:inherit;">廣島 → 下瀨美術館 → 宮島口 → 渡輪至宮島（JR Pass 可搭渡輪，約 10 分）</a></div>
   <div class="hotel-card"><div class="hotel-icon-wrap">🏨</div><div><div class="hotel-name">Quintessa Hotel 広島銀山町（連住）</div><div class="hotel-addr">〒730-0022 広島県広島市中区銀山町10-17</div><a class="hotel-map-link" href="https://maps.google.com/?q=Quintessa+Hotel+Hiroshima+Ginzanmachi" target="_blank"><svg viewBox="0 0 24 24" fill="#4285f4" width="12" height="12"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>Google Maps</a></div></div>
   <div class="note-box">💡 <strong>潮汐提醒：</strong>退潮時可步行至大鳥居旁，漲潮時鳥居倒映海面最為壯觀。建議出發前 <a href="https://haichaobiao.com/jp/hiroshima/itsukushima" target="_blank">查詢潮汐</a>，安排<a href="https://raw.githubusercontent.com/glenn543/2026-/refs/heads/main/images/%E6%BD%AE%E6%B1%90.jpg" target="_blank">最佳觀賞時間</a>。</div>
   <div class="section-label" style="margin-top:1rem;">景點行程</div>
@@ -1125,6 +1133,45 @@ function closeHtmlModal() {
   <div id="html-modal-inner">
     <div id="html-modal-bar"></div>
     <div id="html-modal-body"></div>
+  </div>
+</div>
+
+<div id="tpl-shimose-route" style="display:none">
+  <div class="tf-flow">
+    <div class="tf-step tf-orange">
+      <div class="tf-label">出門</div>
+      <div class="tf-route">08:10 前往 JR 廣島站</div>
+    </div>
+    <div class="tf-arrow"><svg width="14" height="20" viewBox="0 0 14 20" fill="none"><path d="M2 2L7 8L12 2" stroke="#94a3b8" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M2 10L7 16L12 10" stroke="#94a3b8" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+    <div class="tf-step tf-blue">
+      <div class="tf-label">JR 山陽本線（往大竹方向）</div>
+      <div class="tf-route">廣島駅 08:35 → 大竹駅 09:20</div>
+      <div class="tf-meta">約 45 MIN</div>
+    </div>
+    <div class="tf-arrow"><svg width="14" height="20" viewBox="0 0 14 20" fill="none"><path d="M2 2L7 8L12 2" stroke="#94a3b8" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M2 10L7 16L12 10" stroke="#94a3b8" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+    <div class="tf-step tf-orange">
+      <div class="tf-label">美術館免費接駁車</div>
+      <div class="tf-route">大竹駅 09:25 → 下瀨美術館</div>
+    </div>
+
+    <div class="tf-divider">回程</div>
+
+    <div class="tf-step tf-orange">
+      <div class="tf-label">美術館免費接駁車</div>
+      <div class="tf-route">下瀨美術館 12:05 → 大竹駅</div>
+    </div>
+    <div class="tf-arrow"><svg width="14" height="20" viewBox="0 0 14 20" fill="none"><path d="M2 2L7 8L12 2" stroke="#94a3b8" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M2 10L7 16L12 10" stroke="#94a3b8" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+    <div class="tf-step tf-blue">
+      <div class="tf-label">JR 山陽本線（往宮島口方向）</div>
+      <div class="tf-route">大竹駅 12:32 → 廣電宮島口 12:48</div>
+      <div class="tf-meta">約 16 MIN</div>
+    </div>
+    <div class="tf-arrow"><svg width="14" height="20" viewBox="0 0 14 20" fill="none"><path d="M2 2L7 8L12 2" stroke="#94a3b8" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M2 10L7 16L12 10" stroke="#94a3b8" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+    <div class="tf-step tf-paper">
+      <div class="tf-label">渡輪 Ferry（JR Pass 可搭）</div>
+      <div class="tf-route">廣電宮島口 → 宮島</div>
+      <div class="tf-meta">13:00 / 13:10 船班 ｜ 約 10 MIN</div>
+    </div>
   </div>
 </div>
 
