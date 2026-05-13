@@ -493,18 +493,22 @@ html, body {
 .tf-orange { border-color: #e8833a; background: #fff8f3; }
 .tf-blue   { border-color: #4285f4; background: #f0f5ff; }
 .tf-paper  { border-color: var(--border-mid); background: var(--paper-card); }
-.tf-label  { font-size: 11px; font-weight: 500; color: var(--ink-soft); margin-bottom: 3px; }
-.tf-route  { font-family: 'Shippori Mincho', serif; font-size: 17px; font-weight: 600; margin-bottom: 3px; }
+.tf-label  { font-size: 12px; font-weight: 600; color: var(--ink); margin-bottom: 3px; }
+.tf-route  { font-family: 'Shippori Mincho', serif; font-size: 18px; font-weight: 700; margin-bottom: 3px; }
 .tf-note   { font-size: 10px; color: var(--ink-soft); margin-bottom: 3px; }
-.tf-meta   { font-size: 10px; font-weight: 500; }
-.tf-orange .tf-meta { color: #c96a1a; }
-.tf-blue   .tf-meta { color: #1a68c9; }
-.tf-paper  .tf-meta { color: #2e7d32; }
-.tf-arrow  { text-align: center; color: var(--ink-muted); font-size: 18px; line-height: 1.8; }
+.tf-meta   { font-size: 10px; font-weight: 500; color: #2e7d32; }
+.tf-arrow  { display: flex; justify-content: center; padding: 1px 0; }
 .tf-split  { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
 .tf-tag    { display: inline-flex; font-size: 9px; padding: 1px 6px; border-radius: 4px; font-weight: 600; margin-right: 4px; }
 .tf-tag-green { background: #e8f5e9; color: #2e7d32; }
 .tf-tag-blue  { background: #e3f2fd; color: #1565c0; }
+.tf-map-btn {
+  display: flex; align-items: center; justify-content: center; gap: 6px;
+  margin-top: 14px; padding: 10px; border-radius: 10px;
+  background: #e3f2fd; color: #1565c0;
+  font-size: 12px; font-weight: 500; text-decoration: none;
+  border: 1px solid #90caf9;
+}
 
 /* ── TRAM POPUP ── */
 .tram-title { font-family: 'Shippori Mincho', serif; font-size: 22px; font-weight: 700; text-align: center; margin-bottom: 2px; }
@@ -1170,21 +1174,21 @@ function closeHtmlModal() {
       <div class="tf-note">搭路面電車到 JR 松山站</div>
       <div class="tf-meta">IC 約¥230／現金¥250 ｜ 約 9 MIN</div>
     </div>
-    <div class="tf-arrow">↓</div>
+    <div class="tf-arrow"><svg width="14" height="20" viewBox="0 0 14 20" fill="none"><path d="M2 2L7 8L12 2" stroke="#94a3b8" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M2 10L7 16L12 10" stroke="#94a3b8" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
     <div class="tf-step tf-blue">
       <div class="tf-label">2. JR 予讃線特急</div>
       <div class="tf-route">JR松山駅 → 今治駅</div>
       <div class="tf-note">特急いしづち 28号／高松行，可先買指定席</div>
       <div class="tf-meta">自由席 ¥1,840 ｜ 指定席 ¥2,370 ｜ 約 39 MIN</div>
     </div>
-    <div class="tf-arrow">↓</div>
+    <div class="tf-arrow"><svg width="14" height="20" viewBox="0 0 14 20" fill="none"><path d="M2 2L7 8L12 2" stroke="#94a3b8" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M2 10L7 16L12 10" stroke="#94a3b8" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
     <div class="tf-step tf-paper">
       <div class="tf-label">3. しまなみライナー 高速巴士</div>
       <div class="tf-route">今治駅前 → 福山駅前</div>
       <div class="tf-note">出發前到今治駅前乗車処排隊上車，往福山</div>
       <div class="tf-meta">¥2,800 ｜ 約 100 MIN ｜ 不可預約</div>
     </div>
-    <div class="tf-arrow">↓</div>
+    <div class="tf-arrow"><svg width="14" height="20" viewBox="0 0 14 20" fill="none"><path d="M2 2L7 8L12 2" stroke="#94a3b8" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M2 10L7 16L12 10" stroke="#94a3b8" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
     <div class="tf-split">
       <div class="tf-step tf-blue">
         <div class="tf-label"><span class="tf-tag tf-tag-green">4A｜省錢</span>JR 山陽本線</div>
