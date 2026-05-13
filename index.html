@@ -466,6 +466,66 @@ html, body {
 }
 #lightbox.open { display: flex; }
 #lightbox img { max-width: 92vw; max-height: 88vh; border-radius: 12px; object-fit: contain; }
+
+/* ── HTML MODAL ── */
+#html-modal {
+  position: fixed; inset: 0; z-index: 9998;
+  background: rgba(26,22,20,0.6);
+  display: flex; align-items: center; justify-content: center;
+  opacity: 0; pointer-events: none;
+  transition: opacity 0.22s;
+  padding: 24px 16px;
+}
+#html-modal.open { opacity: 1; pointer-events: all; }
+#html-modal-inner {
+  background: var(--paper); border-radius: 16px;
+  padding: 16px 16px 24px; width: 100%; max-width: 480px;
+  max-height: 82vh; overflow-y: auto;
+}
+#html-modal-bar {
+  width: 36px; height: 4px; border-radius: 2px;
+  background: var(--border-mid); margin: 0 auto 14px;
+}
+
+/* ── TRANSPORT FLOW ── */
+.tf-flow { display: flex; flex-direction: column; }
+.tf-step { border-radius: 12px; padding: 11px 13px; border: 2px solid; }
+.tf-orange { border-color: #e8833a; background: #fff8f3; }
+.tf-blue   { border-color: #4285f4; background: #f0f5ff; }
+.tf-paper  { border-color: var(--border-mid); background: var(--paper-card); }
+.tf-label  { font-size: 11px; font-weight: 500; color: var(--ink-soft); margin-bottom: 3px; }
+.tf-route  { font-family: 'Shippori Mincho', serif; font-size: 17px; font-weight: 600; margin-bottom: 3px; }
+.tf-note   { font-size: 10px; color: var(--ink-soft); margin-bottom: 3px; }
+.tf-meta   { font-size: 10px; font-weight: 500; }
+.tf-orange .tf-meta { color: #c96a1a; }
+.tf-blue   .tf-meta { color: #1a68c9; }
+.tf-paper  .tf-meta { color: #2e7d32; }
+.tf-arrow  { text-align: center; color: var(--ink-muted); font-size: 18px; line-height: 1.8; }
+.tf-split  { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.tf-tag    { display: inline-flex; font-size: 9px; padding: 1px 6px; border-radius: 4px; font-weight: 600; margin-right: 4px; }
+.tf-tag-green { background: #e8f5e9; color: #2e7d32; }
+.tf-tag-blue  { background: #e3f2fd; color: #1565c0; }
+
+/* ── TRAM POPUP ── */
+.tram-title { font-family: 'Shippori Mincho', serif; font-size: 22px; font-weight: 700; text-align: center; margin-bottom: 2px; }
+.tram-subtitle { font-size: 11px; color: var(--ink-soft); text-align: center; margin-bottom: 14px; }
+.tram-section-label { font-size: 11px; font-weight: 600; color: var(--red); letter-spacing: 0.04em; margin-bottom: 8px; }
+.tram-lines { display: flex; flex-direction: column; gap: 6px; margin-bottom: 14px; }
+.tram-line { display: flex; align-items: center; gap: 10px; padding: 8px 10px; background: var(--paper-card); border-radius: 10px; border: 1px solid var(--border); }
+.tram-line-num { width: 30px; height: 30px; border-radius: 7px; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 16px; color: #fff; flex-shrink: 0; }
+.tl-1 { background: #e03830; } .tl-2 { background: #b83030; } .tl-6 { background: #c8911a; }
+.tram-line-dest { font-size: 13px; font-weight: 500; }
+.tram-line-dest-en { font-size: 9px; color: var(--ink-muted); }
+.tram-stations { background: var(--paper-warm); border-radius: 10px; padding: 10px 12px; margin-bottom: 12px; }
+.tram-stations-meta { font-size: 10px; margin-bottom: 6px; }
+.tram-stations-meta strong { color: var(--red); margin-right: 6px; }
+.tram-stations-row { display: flex; align-items: center; gap: 5px; flex-wrap: wrap; font-size: 11px; }
+.tram-stn { background: var(--ink); color: #fff; font-size: 9px; font-weight: 600; padding: 2px 6px; border-radius: 4px; }
+.tram-stn.dest { background: var(--red); }
+.tram-stn-arrow { color: var(--ink-muted); }
+.tram-pay { border-top: 1px solid var(--border); padding-top: 10px; }
+.tram-pay-title { font-size: 10px; font-weight: 600; color: var(--ink-soft); margin-bottom: 6px; }
+.tram-pay-item { font-size: 11px; padding: 3px 0; color: var(--ink-mid); }
 </style>
 </head>
 <body>
@@ -811,7 +871,7 @@ html, body {
     <div class="day-badge"><span class="day-badge-date">5/23</span><span class="day-badge-day">SAT</span></div>
     <div class="day-header-text"><div class="day-num-label">Day 7</div><h2 class="day-title">松山自由行 → 三原</h2><span class="day-region-badge r-mihara">松山 / 三原</span><a class="map-link" href="https://www.google.com/maps/d/u/0/edit?mid=1fEkGLdQ9jO81khaHCx7vAYxyTFRDLJo&hl=zh-TW&ll=34.37340353991851%2C132.93510067125715&z=12" target="_blank">🗺 地圖</a></div>
   </div>
-  <div class="transport-bar"><span class="transport-icon">🚂</span><a href="#" onclick="openImg('https://github.com/glenn543/2026-/blob/main/images/%E6%9D%BE%E5%B1%B1%E5%88%B0%E4%B8%89%E5%8E%9FFix.jpg?raw=true');return false;" style="color:inherit;">松山（愛媛）→ 今治車站 → JR 至三原 / 或 JR 陸路至三原</a></div>
+  <div class="transport-bar"><span class="transport-icon">🚂</span><a href="#" onclick="openHtmlModal('tpl-matsuyama-route');return false;" style="color:inherit;">松山（愛媛）→ 今治車站 → JR 至三原 / 或 JR 陸路至三原</a></div>
   <div class="hotel-card"><div class="hotel-icon-wrap">🏨</div><div><div class="hotel-name">Super Hotel 三原駅前</div><div class="hotel-addr">〒723-0014 広島県三原市城町1-12-10</div><a class="hotel-map-link" href="https://maps.google.com/?q=Super+Hotel+Mihara+Station+Hiroshima" target="_blank"><svg viewBox="0 0 24 24" fill="#4285f4" width="12" height="12"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>Google Maps</a></div></div>
   <div class="section-label" style="margin-top:1rem;">景點行程</div>
   <div class="spots-grid">
@@ -1047,7 +1107,99 @@ function openImg(url) {
   document.getElementById('lightboxImg').src = url;
   document.getElementById('lightbox').classList.add('open');
 }
+function openHtmlModal(id) {
+  document.getElementById('html-modal-body').innerHTML = document.getElementById(id).innerHTML;
+  document.getElementById('html-modal').classList.add('open');
+}
+function closeHtmlModal() {
+  document.getElementById('html-modal').classList.remove('open');
+}
 </script>
 <div id="lightbox" onclick="this.classList.remove('open')"><img id="lightboxImg" src=""></div>
+
+<div id="html-modal" onclick="if(event.target===this)closeHtmlModal()">
+  <div id="html-modal-inner">
+    <div id="html-modal-bar"></div>
+    <div id="html-modal-body"></div>
+  </div>
+</div>
+
+<div id="tpl-hiroshima-tram" style="display:none">
+  <div class="tram-title">広島駅 → 銀山町</div>
+  <div class="tram-subtitle">Hiroshima Station → Kanayama-cho</div>
+  <div class="tram-section-label">搭乘路面廣電電車前往</div>
+  <div class="tram-lines">
+    <div class="tram-line">
+      <span class="tram-line-num tl-1">1</span>
+      <div><div class="tram-line-dest">廣島港方面</div><div class="tram-line-dest-en">for Hiroshima Port</div></div>
+    </div>
+    <div class="tram-line">
+      <span class="tram-line-num tl-2">2</span>
+      <div><div class="tram-line-dest">廣電宮島口方面</div><div class="tram-line-dest-en">for Hiroden-miyajima-guchi via Hatchobori</div></div>
+    </div>
+    <div class="tram-line">
+      <span class="tram-line-num tl-6">6</span>
+      <div><div class="tram-line-dest">江波方面</div><div class="tram-line-dest-en">for Eba via Hatchobori</div></div>
+    </div>
+  </div>
+  <div class="tram-stations">
+    <div class="tram-stations-meta"><strong>總共三站</strong> 約 4 min</div>
+    <div class="tram-stations-row">
+      <span class="tram-stn">M01</span> 廣島駅
+      <span class="tram-stn-arrow">→</span>
+      <span class="tram-stn">M02</span> 稲荷町
+      <span class="tram-stn-arrow">→</span>
+      <span class="tram-stn dest">M03</span> 銀山町
+    </div>
+  </div>
+  <div class="tram-pay">
+    <div class="tram-pay-title">乗車票種 / The following tickets</div>
+    <div class="tram-pay-item">📱 乗車券システム「モビリーデイズ」</div>
+    <div class="tram-pay-item">💴 現金 / Cash</div>
+    <div class="tram-pay-item">💳 交通系ICカード / IC card</div>
+    <div class="tram-pay-item">🎫 一日乗車券 / 1 Day Pass</div>
+    <div class="tram-pay-item">🗾 広島たびパス / Visit Hiroshima Tourist Pass</div>
+  </div>
+</div>
+
+<div id="tpl-matsuyama-route" style="display:none">
+  <div class="tf-flow">
+    <div class="tf-step tf-orange">
+      <div class="tf-label">1. 伊予鐵 路面電車</div>
+      <div class="tf-route">松山市駅 → JR松山駅前</div>
+      <div class="tf-note">搭路面電車到 JR 松山站</div>
+      <div class="tf-meta">IC 約¥230／現金¥250 ｜ 約 9 MIN</div>
+    </div>
+    <div class="tf-arrow">↓</div>
+    <div class="tf-step tf-blue">
+      <div class="tf-label">2. JR 予讃線特急</div>
+      <div class="tf-route">JR松山駅 → 今治駅</div>
+      <div class="tf-note">特急いしづち 28号／高松行，可先買指定席</div>
+      <div class="tf-meta">自由席 ¥1,840 ｜ 指定席 ¥2,370 ｜ 約 39 MIN</div>
+    </div>
+    <div class="tf-arrow">↓</div>
+    <div class="tf-step tf-paper">
+      <div class="tf-label">3. しまなみライナー 高速巴士</div>
+      <div class="tf-route">今治駅前 → 福山駅前</div>
+      <div class="tf-note">出發前到今治駅前乗車処排隊上車，往福山</div>
+      <div class="tf-meta">¥2,800 ｜ 約 100 MIN ｜ 不可預約</div>
+    </div>
+    <div class="tf-arrow">↓</div>
+    <div class="tf-split">
+      <div class="tf-step tf-blue">
+        <div class="tf-label"><span class="tf-tag tf-tag-green">4A｜省錢</span>JR 山陽本線</div>
+        <div class="tf-route">福山駅 → 三原駅</div>
+        <div class="tf-note">三原・広島方面，不需預訂座位</div>
+        <div class="tf-meta">¥590 ｜ 約 35 MIN</div>
+      </div>
+      <div class="tf-step tf-blue">
+        <div class="tf-label"><span class="tf-tag tf-tag-blue">4B｜較快</span>山陽新幹線</div>
+        <div class="tf-route">福山駅 → 三原駅</div>
+        <div class="tf-note">こだま／三原・広島方面，自由席即可</div>
+        <div class="tf-meta">¥1,460 ｜ 約 13–18 MIN</div>
+      </div>
+    </div>
+  </div>
+</div>
 </body>
 </html>
