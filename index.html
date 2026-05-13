@@ -981,28 +981,39 @@ async function fetchDay(entry) {
   const j = await r.json();
   return { ...entry, code: j.daily.weathercode[0], max: Math.round(j.daily.temperature_2m_max[0]), min: Math.round(j.daily.temperature_2m_min[0]) };
 }
-(async () => {
+function renderWeather(days) {
   const empty = document.getElementById('weatherEmpty');
   const strip = document.getElementById('weatherStrip');
+  strip.innerHTML = days.map(d => `
+    <div class="weather-day">
+      <div class="weather-day-date">${d.date}</div>
+      <div class="weather-day-city">${d.city}</div>
+      <div class="weather-day-icon">${wmoEmoji(d.code)}</div>
+      <div class="weather-day-temp"><strong>${d.max}°</strong> / ${d.min}°</div>
+    </div>`).join('');
+  empty.style.display = 'none';
+  strip.style.display = 'flex';
+}
+async function loadWeather() {
+  const CACHE_KEY = 'weather-2026';
+  const TTL = 6 * 60 * 60 * 1000;
+  try {
+    const cached = JSON.parse(localStorage.getItem(CACHE_KEY) || 'null');
+    if (cached && Date.now() - cached.ts < TTL) { renderWeather(cached.data); return; }
+  } catch(_) {}
   try {
     const days = await Promise.all(TRIP_DAYS.map(fetchDay));
-    strip.innerHTML = days.map(d => `
-      <div class="weather-day">
-        <div class="weather-day-date">${d.date}</div>
-        <div class="weather-day-city">${d.city}</div>
-        <div class="weather-day-icon">${wmoEmoji(d.code)}</div>
-        <div class="weather-day-temp"><strong>${d.max}°</strong> / ${d.min}°</div>
-      </div>`).join('');
-    empty.style.display = 'none';
-    strip.style.display = 'flex';
+    try { localStorage.setItem(CACHE_KEY, JSON.stringify({ ts: Date.now(), data: days })); } catch(_) {}
+    renderWeather(days);
   } catch(_) {
-    empty.innerHTML = '';
+    document.getElementById('weatherEmpty').innerHTML = '';
   }
-  const fade = document.getElementById('weatherFade');
-  document.getElementById('weatherBanner').addEventListener('scroll', function() {
-    fade.style.opacity = (this.scrollLeft + this.clientWidth >= this.scrollWidth - 4) ? '0' : '1';
-  });
-})();
+}
+const fade = document.getElementById('weatherFade');
+document.getElementById('weatherBanner').addEventListener('scroll', function() {
+  fade.style.opacity = (this.scrollLeft + this.clientWidth >= this.scrollWidth - 4) ? '0' : '1';
+});
+(window.requestIdleCallback || (cb => setTimeout(cb, 1500)))(loadWeather);
 
 function openImg(url) {
   document.getElementById('lightboxImg').src = url;
