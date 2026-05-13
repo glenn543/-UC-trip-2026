@@ -1,4 +1,4 @@
-const CACHE = 'hiroshima-2026-v3';
+const CACHE = 'hiroshima-2026-v4';
 const PRECACHE = ['./', './index.html', './manifest.json'];
 
 self.addEventListener('install', e => {
