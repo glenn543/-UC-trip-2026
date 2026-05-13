@@ -145,7 +145,7 @@ html, body {
   font-size: 60px; font-weight: 800; line-height: 1; color: #fff;
   margin-bottom: 0.3rem; letter-spacing: -0.01em;
 }
-.intro-title span { color: var(--red); }
+.intro-title span { color: #fff; }
 .intro-subtitle {
   font-size: 11px; font-weight: 300;
   color: rgba(255,255,255,0.4); letter-spacing: 0.06em;
@@ -247,6 +247,15 @@ html, body {
   font-size: 10px; font-weight: 500; padding: 2px 9px;
   border-radius: 6px; border: 1px solid;
 }
+
+.map-link {
+  display: inline-flex; align-items: center; gap: 3px;
+  font-size: 10px; font-weight: 500; padding: 2px 8px;
+  border-radius: 6px; border: 1px solid var(--border-mid);
+  color: var(--ink-soft); text-decoration: none; margin-left: 5px;
+  vertical-align: middle;
+}
+.map-link:active { background: var(--paper-warm); }
 
 /* ── REGION COLORS ── */
 .r-hiroshima { color: #993C1D; border-color: #F0997B; background: #FAECE7; }
@@ -558,7 +567,7 @@ html, body {
     <div class="day-header-text">
       <div class="day-num-label">Day 1</div>
       <h2 class="day-title">出發 → 抵達廣島</h2>
-      <span class="day-region-badge r-hiroshima">廣島市</span>
+      <span class="day-region-badge r-hiroshima">廣島市</span><a class="map-link" href="https://www.google.com/maps/d/u/0/edit?mid=1fEkGLdQ9jO81khaHCx7vAYxyTFRDLJo&hl=zh-TW&ll=34.37340353991851%2C132.93510067125715&z=12" target="_blank">🗺 地圖</a>
     </div>
   </div>
 
@@ -688,7 +697,7 @@ html, body {
 <div class="panel-content">
   <div class="day-header">
     <div class="day-badge"><span class="day-badge-date">5/18</span><span class="day-badge-day">MON</span></div>
-    <div class="day-header-text"><div class="day-num-label">Day 2</div><h2 class="day-title">Mazda 博物館 → 吳市</h2><span class="day-region-badge r-kure">廣島市 / 吳市</span></div>
+    <div class="day-header-text"><div class="day-num-label">Day 2</div><h2 class="day-title">Mazda 博物館 → 吳市</h2><span class="day-region-badge r-kure">廣島市 / 吳市</span><a class="map-link" href="https://www.google.com/maps/d/u/0/edit?mid=1fEkGLdQ9jO81khaHCx7vAYxyTFRDLJo&hl=zh-TW&ll=34.37340353991851%2C132.93510067125715&z=12" target="_blank">🗺 地圖</a></div>
   </div>
   <div class="transport-bar"><span class="transport-icon">🚗</span>廣島市區 → Mazda 本社（電車至向洋站）→ 吳市（JR 呉線約 30 分）</div>
   <div class="hotel-card"><div class="hotel-icon-wrap">🏨</div><div><div class="hotel-name">Quintessa Hotel 広島銀山町（連住）</div><div class="hotel-addr">〒730-0022 広島県広島市中区銀山町10-17</div><a class="hotel-map-link" href="https://maps.google.com/?q=Quintessa+Hotel+Hiroshima+Ginzanmachi" target="_blank"><svg viewBox="0 0 24 24" fill="#4285f4" width="12" height="12"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>Google Maps</a></div></div>
@@ -708,7 +717,7 @@ html, body {
 <div class="panel-content">
   <div class="day-header">
     <div class="day-badge"><span class="day-badge-date">5/19</span><span class="day-badge-day">TUE</span></div>
-    <div class="day-header-text"><div class="day-num-label">Day 3</div><h2 class="day-title">下瀨美術館 → 宮島・嚴島神社</h2><span class="day-region-badge r-miyajima">大竹 / 宮島</span></div>
+    <div class="day-header-text"><div class="day-num-label">Day 3</div><h2 class="day-title">下瀨美術館 → 宮島・嚴島神社</h2><span class="day-region-badge r-miyajima">大竹 / 宮島</span><a class="map-link" href="https://www.google.com/maps/d/u/0/edit?mid=1fEkGLdQ9jO81khaHCx7vAYxyTFRDLJo&hl=zh-TW&ll=34.37340353991851%2C132.93510067125715&z=12" target="_blank">🗺 地圖</a></div>
   </div>
   <div class="transport-bar"><span class="transport-icon">🚗</span>廣島 → 下瀨美術館 → 宮島口 → 渡輪至宮島（JR Pass 可搭渡輪，約 10 分）</div>
   <div class="hotel-card"><div class="hotel-icon-wrap">🏨</div><div><div class="hotel-name">Quintessa Hotel 広島銀山町（連住）</div><div class="hotel-addr">〒730-0022 広島県広島市中区銀山町10-17</div><a class="hotel-map-link" href="https://maps.google.com/?q=Quintessa+Hotel+Hiroshima+Ginzanmachi" target="_blank"><svg viewBox="0 0 24 24" fill="#4285f4" width="12" height="12"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>Google Maps</a></div></div>
@@ -728,7 +737,7 @@ html, body {
 <div class="panel-content">
   <div class="day-header">
     <div class="day-badge"><span class="day-badge-date">5/20</span><span class="day-badge-day">WED</span></div>
-    <div class="day-header-text"><div class="day-num-label">Day 4</div><h2 class="day-title">尾道自由行</h2><span class="day-region-badge r-onomichi">尾道市</span></div>
+    <div class="day-header-text"><div class="day-num-label">Day 4</div><h2 class="day-title">尾道自由行</h2><span class="day-region-badge r-onomichi">尾道市</span><a class="map-link" href="https://www.google.com/maps/d/u/0/edit?mid=1fEkGLdQ9jO81khaHCx7vAYxyTFRDLJo&hl=zh-TW&ll=34.37340353991851%2C132.93510067125715&z=12" target="_blank">🗺 地圖</a></div>
   </div>
   <div class="transport-bar"><span class="transport-icon">🚆</span>廣島 Check Out → JR 山陽本線 廣島至尾道約 80 分</div>
   <div class="hotel-card"><div class="hotel-icon-wrap">🏨</div><div><div class="hotel-name">尾道 Royal Hotel（皇家飯店）</div><div class="hotel-addr">〒722-0035 広島県尾道市土堂2-9-27 海岸通り住吉神社前</div><a class="hotel-map-link" href="https://maps.google.com/?q=Onomichi+Royal+Hotel+Hiroshima" target="_blank"><svg viewBox="0 0 24 24" fill="#4285f4" width="12" height="12"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>Google Maps</a></div></div>
@@ -749,7 +758,7 @@ html, body {
 <div class="panel-content">
   <div class="day-header">
     <div class="day-badge" style="background:var(--red);"><span class="day-badge-date">5/21</span><span class="day-badge-day">THU</span></div>
-    <div class="day-header-text"><div class="day-num-label">Day 5</div><h2 class="day-title">島波海道 單車之旅 🚲</h2><span class="day-region-badge r-shimanami">尾道 → 大三島</span></div>
+    <div class="day-header-text"><div class="day-num-label">Day 5</div><h2 class="day-title">島波海道 單車之旅 🚲</h2><span class="day-region-badge r-shimanami">尾道 → 大三島</span><a class="map-link" href="https://www.google.com/maps/d/u/0/edit?mid=1fEkGLdQ9jO81khaHCx7vAYxyTFRDLJo&hl=zh-TW&ll=34.37340353991851%2C132.93510067125715&z=12" target="_blank">🗺 地圖</a></div>
   </div>
   <div class="transport-bar"><span class="transport-icon">🚲</span>尾道渡船頭租車 → 向島 → 因島 → 生口島 → 大三島｜跨海大橋單車道全程約 35km</div>
   <div class="hotel-card"><div class="hotel-icon-wrap">🏨</div><div>
@@ -781,7 +790,7 @@ html, body {
 <div class="panel-content">
   <div class="day-header">
     <div class="day-badge"><span class="day-badge-date">5/22</span><span class="day-badge-day">FRI</span></div>
-    <div class="day-header-text"><div class="day-num-label">Day 6</div><h2 class="day-title">大三島 → 今治 → 松山</h2><span class="day-region-badge r-matsuyama">今治 / 松山</span></div>
+    <div class="day-header-text"><div class="day-num-label">Day 6</div><h2 class="day-title">大三島 → 今治 → 松山</h2><span class="day-region-badge r-matsuyama">今治 / 松山</span><a class="map-link" href="https://www.google.com/maps/d/u/0/edit?mid=1fEkGLdQ9jO81khaHCx7vAYxyTFRDLJo&hl=zh-TW&ll=34.37340353991851%2C132.93510067125715&z=12" target="_blank">🗺 地圖</a></div>
   </div>
   <div class="transport-bar"><span class="transport-icon">🚌</span>大三島 → 今治巴士總站 → 伊予鐵道至松山市區（巴士+電車約 1.5hr）</div>
   <div class="hotel-card"><div class="hotel-icon-wrap">🏨</div><div><div class="hotel-name">Comfort Hotel 松山</div><div class="hotel-addr">〒790-0005 愛媛県松山市花園町3-18</div><a class="hotel-map-link" href="https://maps.google.com/?q=Comfort+Hotel+Matsuyama+Ehime" target="_blank"><svg viewBox="0 0 24 24" fill="#4285f4" width="12" height="12"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>Google Maps</a></div></div>
@@ -800,9 +809,9 @@ html, body {
 <div class="panel-content">
   <div class="day-header">
     <div class="day-badge"><span class="day-badge-date">5/23</span><span class="day-badge-day">SAT</span></div>
-    <div class="day-header-text"><div class="day-num-label">Day 7</div><h2 class="day-title">松山自由行 → 三原</h2><span class="day-region-badge r-mihara">松山 / 三原</span></div>
+    <div class="day-header-text"><div class="day-num-label">Day 7</div><h2 class="day-title">松山自由行 → 三原</h2><span class="day-region-badge r-mihara">松山 / 三原</span><a class="map-link" href="https://www.google.com/maps/d/u/0/edit?mid=1fEkGLdQ9jO81khaHCx7vAYxyTFRDLJo&hl=zh-TW&ll=34.37340353991851%2C132.93510067125715&z=12" target="_blank">🗺 地圖</a></div>
   </div>
-  <div class="transport-bar"><span class="transport-icon">🚂</span>松山（愛媛）→ 今治車站 → JR 至三原 / 或 JR 陸路至三原</div>
+  <div class="transport-bar"><span class="transport-icon">🚂</span><a href="#" onclick="openImg('https://github.com/glenn543/2026-/blob/main/images/%E6%9D%BE%E5%B1%B1%E5%88%B0%E4%B8%89%E5%8E%9FFix.jpg?raw=true');return false;" style="color:inherit;">松山（愛媛）→ 今治車站 → JR 至三原 / 或 JR 陸路至三原</a></div>
   <div class="hotel-card"><div class="hotel-icon-wrap">🏨</div><div><div class="hotel-name">Super Hotel 三原駅前</div><div class="hotel-addr">〒723-0014 広島県三原市城町1-12-10</div><a class="hotel-map-link" href="https://maps.google.com/?q=Super+Hotel+Mihara+Station+Hiroshima" target="_blank"><svg viewBox="0 0 24 24" fill="#4285f4" width="12" height="12"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>Google Maps</a></div></div>
   <div class="section-label" style="margin-top:1rem;">景點行程</div>
   <div class="spots-grid">
@@ -819,7 +828,7 @@ html, body {
 <div class="panel-content">
   <div class="day-header">
     <div class="day-badge"><span class="day-badge-date">5/24</span><span class="day-badge-day">SUN</span></div>
-    <div class="day-header-text"><div class="day-num-label">Day 8</div><h2 class="day-title">返回台灣</h2><span class="day-region-badge r-flight">三原 → 廣島機場</span></div>
+    <div class="day-header-text"><div class="day-num-label">Day 8</div><h2 class="day-title">返回台灣</h2><span class="day-region-badge r-flight">三原 → 廣島機場</span><a class="map-link" href="https://www.google.com/maps/d/u/0/edit?mid=1fEkGLdQ9jO81khaHCx7vAYxyTFRDLJo&hl=zh-TW&ll=34.37340353991851%2C132.93510067125715&z=12" target="_blank">🗺 地圖</a></div>
   </div>
   <div class="transport-bar">
     <span class="transport-icon">🚌</span>
