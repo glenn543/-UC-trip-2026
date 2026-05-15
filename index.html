@@ -814,7 +814,7 @@ html, body {
     <div class="day-badge"><span class="day-badge-date">5/20</span><span class="day-badge-day">WED</span></div>
     <div class="day-header-text"><div class="day-num-label">Day 4</div><h2 class="day-title">尾道自由行</h2><span class="day-region-badge r-onomichi">尾道市</span><a class="map-link" href="https://www.google.com/maps/d/u/0/edit?mid=1fEkGLdQ9jO81khaHCx7vAYxyTFRDLJo&hl=zh-TW&ll=34.37340353991851%2C132.93510067125715&z=12" target="_blank">🗺 地圖</a></div>
   </div>
-  <div class="transport-bar"><span class="transport-icon">🚆</span>廣島 Check Out → JR 山陽本線 廣島至尾道約 80 分</div>
+  <div class="transport-bar"><span class="transport-icon">🚆</span><a href="#" onclick="openHtmlModal('tpl-onomichi-route');return false;" style="color:inherit;">廣島 Check Out → JR 山陽本線 廣島至尾道約 80 分</a></div>
   <div class="hotel-card"><div class="hotel-icon-wrap">🏨</div><div><div class="hotel-name">尾道 Royal Hotel（皇家飯店）</div><div class="hotel-addr">〒722-0035 広島県尾道市土堂2-9-27 海岸通り住吉神社前</div><a class="hotel-map-link" href="https://maps.google.com/?q=Onomichi+Royal+Hotel+Hiroshima" target="_blank"><svg viewBox="0 0 24 24" fill="#4285f4" width="12" height="12"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>Google Maps</a></div></div>
   <div class="section-label">景點行程</div>
   <div class="spots-grid">
@@ -1201,6 +1201,29 @@ function closeHtmlModal() {
       <div class="tf-label">JR 呉線</div>
       <div class="tf-route">廣島駅 → 吳駅</div>
       <div class="tf-meta">約 30 MIN</div>
+    </div>
+  </div>
+</div>
+
+<div id="tpl-onomichi-route" style="display:none">
+  <div class="tf-flow">
+    <div class="tf-step tf-paper">
+      <div class="tf-label">Check Out・出門</div>
+      <div class="tf-route">Quintessa Hotel 広島銀山町 → JR 廣島駅</div>
+      <div class="tf-note">行李可先寄放飯店或宅配至尾道</div>
+    </div>
+    <div class="tf-arrow"><svg width="14" height="20" viewBox="0 0 14 20" fill="none"><path d="M2 2L7 8L12 2" stroke="#94a3b8" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M2 10L7 16L12 10" stroke="#94a3b8" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+    <div class="tf-step tf-blue">
+      <div class="tf-label">JR 山陽本線（普通・往糸崎方向）</div>
+      <div class="tf-route">廣島駅 → 尾道駅</div>
+      <div class="tf-note">無需換車，直達尾道，每小時約 1–2 班</div>
+      <div class="tf-meta">約 80 MIN ｜ ¥1,340</div>
+    </div>
+    <div class="tf-arrow"><svg width="14" height="20" viewBox="0 0 14 20" fill="none"><path d="M2 2L7 8L12 2" stroke="#94a3b8" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M2 10L7 16L12 10" stroke="#94a3b8" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+    <div class="tf-step tf-paper">
+      <div class="tf-label">抵達</div>
+      <div class="tf-route">尾道駅 下車</div>
+      <div class="tf-note">車站南口出站即是尾道港與商店街</div>
     </div>
   </div>
 </div>
