@@ -1086,7 +1086,7 @@ function renderWeather(days) {
   strip.style.display = 'flex';
 }
 async function loadWeather() {
-  const CACHE_KEY = 'weather-2026-v3';
+  const CACHE_KEY = 'weather-2026-v4';
   const TTL = 6 * 60 * 60 * 1000;
   try {
     const cached = JSON.parse(localStorage.getItem(CACHE_KEY) || 'null');
