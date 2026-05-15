@@ -96,7 +96,7 @@ html, body {
 /* ── PAGER ── */
 .pager-outer {
   position: fixed;
-  top: 54px; left: 0; right: 0; bottom: 36px;
+  top: calc(54px + env(safe-area-inset-top)); left: 0; right: 0; bottom: 36px;
   overflow: hidden;
 }
 .pager-inner {
