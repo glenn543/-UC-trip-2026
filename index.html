@@ -388,6 +388,26 @@ html, body {
 .spot-map-btn:hover { background: rgba(66,133,244,0.07); }
 .spot-map-btn svg { width: 10px; height: 10px; }
 
+/* ── FOOD RECS ── */
+.food-grid { display: flex; flex-direction: column; gap: 7px; margin-top: 0.4rem; }
+.food-item {
+  background: #fffdf9; border: 1px solid rgba(184,48,48,0.12);
+  border-left: 3px solid #D85A30; border-radius: 9px; padding: 9px 11px 8px;
+}
+.food-item-head { display: flex; align-items: baseline; gap: 5px; margin-bottom: 3px; flex-wrap: wrap; }
+.food-name { font-family: 'Shippori Mincho', serif; font-size: 13px; font-weight: 600; color: var(--ink); }
+.food-jp { font-size: 9px; color: var(--ink-muted); }
+.food-stars { font-size: 10px; color: #D85A30; margin-left: auto; letter-spacing: -1px; flex-shrink: 0; }
+.food-desc { font-size: 10.5px; color: var(--ink-mid); line-height: 1.55; margin-bottom: 5px; }
+.food-tags { display: flex; gap: 3px; flex-wrap: wrap; }
+.food-tag { font-size: 8px; font-weight: 500; padding: 1px 6px; border-radius: 3px; }
+.ft-meal     { background: #FAECE7; color: #993C1D; }
+.ft-must     { background: #fef9c3; color: #7c6209; }
+.ft-quick    { background: #E1F5EE; color: #0F6E56; }
+.ft-souvenir { background: #EEEDFE; color: #534AB7; }
+.ft-drink    { background: #E6F1FB; color: #185FA5; }
+.ft-local    { background: #faeeda; color: #854F0B; }
+
 /* ── NOTE BOX ── */
 .note-box {
   margin-top: 0.9rem; padding: 11px 13px;
@@ -763,6 +783,13 @@ html, body {
       <div class="spot-footer"><div class="spot-tags"><span class="tag tag-must">必訪</span><span class="tag tag-food">美食</span></div><a class="spot-map-btn" href="https://maps.google.com/?q=Okonomimura+Hiroshima" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>地圖</a></div>
     </div>
   </div>
+  <div class="section-label" style="margin-top:1rem;">在地美食</div>
+  <div class="food-grid">
+    <div class="food-item"><div class="food-item-head"><span class="food-name">廣島燒</span><span class="food-jp">お好み焼き</span><span class="food-stars">★★★</span></div><div class="food-desc">廣島鐵板分層燒，麵條是靈魂，有別大阪燒。行程已排お好み村，多家口味略有不同，現點現做。</div><div class="food-tags"><span class="food-tag ft-meal">晚餐</span><span class="food-tag ft-must">必吃</span></div></div>
+    <div class="food-item"><div class="food-item-head"><span class="food-name">廣島牡蠣</span><span class="food-jp">広島かき</span><span class="food-stars">★★★</span></div><div class="food-desc">全日本產量第一，肥美鮮甜。烤牡蠣、牡蠣飯、牡蠣土手鍋，廣島市區各式供應。</div><div class="food-tags"><span class="food-tag ft-meal">晚餐</span><span class="food-tag ft-must">必吃</span></div></div>
+    <div class="food-item"><div class="food-item-head"><span class="food-name">廣島沾麵</span><span class="food-jp">汁なし担担麺</span><span class="food-stars">★★☆</span></div><div class="food-desc">類麻醬拌麵，背脂醬油風味，辣度可選，配溫泉蛋更佳。廣島市區本通・大須賀通多家。</div><div class="food-tags"><span class="food-tag ft-meal">宵夜</span></div></div>
+    <div class="food-item"><div class="food-item-head"><span class="food-name">紅葉饅頭</span><span class="food-jp">もみじ饅頭</span><span class="food-stars">★★☆</span></div><div class="food-desc">廣島最知名伴手禮，現烤版口感更香軟，可先試吃再決定要買哪家，車站附近有售。</div><div class="food-tags"><span class="food-tag ft-quick">快閃OK</span><span class="food-tag ft-souvenir">伴手禮</span></div></div>
+  </div>
 </div>
 </div>
 
@@ -784,6 +811,13 @@ html, body {
     <div class="spot-card" data-primary="nature"><div class="spot-time-badge">16:30</div><div class="spot-name">吳港灣散步</div><div class="spot-en">Kure Port Promenade</div><div class="spot-desc">沿著吳港海岸線散步，現役海上自衛隊護衛艦停靠在岸邊，是軍艦迷的絕佳攝影機會。</div><div class="spot-footer"><div class="spot-tags"><span class="tag tag-nature">自然</span></div><a class="spot-map-btn" href="https://maps.google.com/?q=Kure+Port+Hiroshima" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>地圖</a></div></div>
     <div class="spot-card" data-primary="food"><div class="spot-time-badge">17:30</div><div class="spot-name">煉瓦通商店街</div><div class="spot-en">Shopping Street in Kure</div><div class="spot-desc">位於吳市中心的「吳中通商店街」是市內最熱鬧的商店街，由於路面鋪上了滿滿的紅磚，故也被稱為「煉瓦通」。</div><div class="spot-footer"><div class="spot-tags"><span class="tag tag-food">美食</span></div><a class="spot-map-btn" href="https://maps.google.com/?q=Kure+Renga+Street" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>地圖</a></div></div>
   </div>
+  <div class="section-label" style="margin-top:1rem;">在地美食</div>
+  <div class="food-grid">
+    <div class="food-item"><div class="food-item-head"><span class="food-name">吳海軍咖哩</span><span class="food-jp">海軍カレー</span><span class="food-stars">★★★</span></div><div class="food-desc">舊日本海軍食譜復刻，吳市獨有，濃郁辛香。「壱番館」等多家老店供應，午餐首選，可在吳市區找到。</div><div class="food-tags"><span class="food-tag ft-meal">午餐</span><span class="food-tag ft-local">在地限定</span><span class="food-tag ft-must">必吃</span></div></div>
+    <div class="food-item"><div class="food-item-head"><span class="food-name">廣島牡蠣</span><span class="food-jp">広島かき</span><span class="food-stars">★★☆</span></div><div class="food-desc">吳港周邊也有新鮮牡蠣料理，烤牡蠣不遜宮島版，在海邊氛圍下享用更佳。</div><div class="food-tags"><span class="food-tag ft-meal">午餐</span></div></div>
+    <div class="food-item"><div class="food-item-head"><span class="food-name">章魚料理</span><span class="food-jp">たこ料理</span><span class="food-stars">★★☆</span></div><div class="food-desc">廣島縣是日本章魚大產地，章魚天婦羅、章魚飯等在吳市沿海餐廳常見。</div><div class="food-tags"><span class="food-tag ft-meal">小食</span></div></div>
+    <div class="food-item"><div class="food-item-head"><span class="food-name">廣島檸檬</span><span class="food-jp">広島レモン</span><span class="food-stars">★☆☆</span></div><div class="food-desc">廣島縣瀨戶內海檸檬日本產量第一，各種檸檬飲品與加工食品值得嚐嚐。</div><div class="food-tags"><span class="food-tag ft-drink">飲料</span><span class="food-tag ft-quick">快閃OK</span></div></div>
+  </div>
 </div>
 </div>
 
@@ -803,6 +837,13 @@ html, body {
     <div class="spot-card" data-primary="must"><div class="spot-time-badge">午餐後</div><div class="spot-name">嚴島神社</div><div class="spot-en">Itsukushima Shrine</div><div class="spot-desc">日本三景之一，UNESCO 世界遺產。海中聳立的大鳥居是宮島的象徵，朱紅色迴廊延伸入海，視覺震撼。門票 300 円。</div><div class="spot-footer"><div class="spot-tags"><span class="tag tag-must">必訪</span><span class="tag tag-history">歷史</span></div><a class="spot-map-btn" href="https://maps.google.com/?q=Itsukushima+Shrine+Miyajima" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>地圖</a></div></div>
     <div class="spot-card" data-primary="food"><div class="spot-time-badge">午餐</div><div class="spot-name">牡蠣料理街</div><div class="spot-en">Oyster Street, Miyajima</div><div class="spot-desc">宮島名物廣島牡蠣，表町通り一帶有烤牡蠣、牡蠣飯、牡蠣可樂餅等各式料理，肥美鮮甜，不可錯過。</div><div class="spot-footer"><div class="spot-tags"><span class="tag tag-must">必訪</span><span class="tag tag-food">美食</span></div><a class="spot-map-btn" href="https://maps.google.com/?q=Miyajima+Oyster+Street" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>地圖</a></div></div>
     <div class="spot-card" data-primary="nature"><div class="spot-time-badge">下午</div><div class="spot-name">彌山登山</div><div class="spot-en">Mt. Misen Hiking</div><div class="spot-desc">搭纜車或步行登頂 535 公尺彌山，晴天可 360° 俯瞰瀨戶內海群島美景，纜車來回票約 2000 円。</div><div class="spot-footer"><div class="spot-tags"><span class="tag tag-nature">自然</span><span class="tag tag-activity">體驗</span></div><a class="spot-map-btn" href="https://maps.google.com/?q=Mount+Misen+Miyajima" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>地圖</a></div></div>
+  </div>
+  <div class="section-label" style="margin-top:1rem;">在地美食</div>
+  <div class="food-grid">
+    <div class="food-item"><div class="food-item-head"><span class="food-name">穴子飯</span><span class="food-jp">あなごめし</span><span class="food-stars">★★★</span></div><div class="food-desc">宮島・宮島口名物，白燒星鰻鰻魚飯。「うえの」老鋪在宮島口車站前，早開適合午餐前。清淡鮮甜，與一般鰻魚飯風味不同。</div><div class="food-tags"><span class="food-tag ft-meal">午餐</span><span class="food-tag ft-must">必吃</span></div></div>
+    <div class="food-item"><div class="food-item-head"><span class="food-name">宮島烤牡蠣</span><span class="food-jp">宮島焼きかき</span><span class="food-stars">★★★</span></div><div class="food-desc">表参道商店街現點現烤，一顆 ¥300 起，帶殼直火，肥美鮮甜，站著吃最過癮。</div><div class="food-tags"><span class="food-tag ft-meal">午餐</span><span class="food-tag ft-quick">快閃OK</span><span class="food-tag ft-must">必吃</span></div></div>
+    <div class="food-item"><div class="food-item-head"><span class="food-name">紅葉饅頭現烤</span><span class="food-jp">焼きもみじ</span><span class="food-stars">★★★</span></div><div class="food-desc">宮島商店街現場燒烤，奶油起司・あんこ・チョコ等多口味，比包裝版更香軟，即烤即食。</div><div class="food-tags"><span class="food-tag ft-meal">點心</span><span class="food-tag ft-quick">快閃OK</span></div></div>
+    <div class="food-item"><div class="food-item-head"><span class="food-name">紅葉造型霜淇淋</span><span class="food-jp">もみじアイス</span><span class="food-stars">★★☆</span></div><div class="food-desc">紅葉造型霜淇淋，商店街多處可見，消暑小食，拍照打卡必備。</div><div class="food-tags"><span class="food-tag ft-meal">點心</span><span class="food-tag ft-quick">快閃OK</span></div></div>
   </div>
 </div>
 </div>
@@ -824,6 +865,13 @@ html, body {
     <div class="spot-card" data-primary="food"><div class="spot-time-badge">黃昏</div><div class="spot-name">ごはんと珈琲アルト</div><div class="spot-en">Gohan to Kohi Alto</div><div class="spot-desc">尾道老街中的隱藏咖啡食堂，古民家改建，提供定食與手沖咖啡，氣氛安靜舒適，是尾道在地人喜愛的餐廳。</div><div class="spot-footer"><div class="spot-tags"><span class="tag tag-food">美食</span></div><a class="spot-map-btn" href="https://maps.google.com/?q=ごはんと珈琲アルト+尾道" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>地圖</a></div></div>
     <div class="spot-card" data-primary="food"><div class="spot-time-badge">白天</div><div class="spot-name">岡村春子商店－魚春</div><div class="spot-en">Deli &amp; Kitchen</div><div class="spot-desc">祖孫三代賣魚的店，一邊看海一邊吃生魚丼飯！尾道拉麵之外的另一個必吃選項。</div><div class="spot-footer"><div class="spot-tags"><span class="tag tag-food">美食</span><span class="tag tag-food">早午餐</span></div><a class="spot-map-btn" href="https://maps.app.goo.gl/mwHuouauWosZy1Kv8" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>地圖</a></div></div>
     <div class="spot-card" data-primary="food"><div class="spot-time-badge">上午</div><div class="spot-name">ONOMICHI U2</div><div class="spot-en">ONOMICHI U2</div><div class="spot-desc">由海軍倉庫翻新改建，以自行車為概念的複合式空間。餐廳、雜貨、麵包店、咖啡館進駐，適合悠閒晃逛。</div><div class="spot-footer"><div class="spot-tags"><span class="tag tag-food">美食</span></div><a class="spot-map-btn" href="https://maps.app.goo.gl/tQ4WqWSL8vPuKATN7" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>地圖</a></div></div>
+  </div>
+  <div class="section-label" style="margin-top:1rem;">在地美食</div>
+  <div class="food-grid">
+    <div class="food-item"><div class="food-item-head"><span class="food-name">尾道拉麵</span><span class="food-jp">尾道ラーメン</span><span class="food-stars">★★★</span></div><div class="food-desc">背脂豬骨醬油湯底，細麵條，豬油香氣十足。「朱華園」等老店排隊中，是尾道最具代表性的 B 級美食。</div><div class="food-tags"><span class="food-tag ft-meal">午/晚餐</span><span class="food-tag ft-must">必吃</span></div></div>
+    <div class="food-item"><div class="food-item-head"><span class="food-name">備後廣島燒</span><span class="food-jp">おみき焼き</span><span class="food-stars">★★☆</span></div><div class="food-desc">備後地區廣島燒分支，口感與廣島市版略有不同，本通り商店街有供應，適合午餐。</div><div class="food-tags"><span class="food-tag ft-meal">午餐</span></div></div>
+    <div class="food-item"><div class="food-item-head"><span class="food-name">尾道布丁</span><span class="food-jp">尾道プリン</span><span class="food-stars">★★☆</span></div><div class="food-desc">近年流行的街頭小食，本店多種口味各異，邊走邊吃最愜意，千光寺山腰附近也有販售。</div><div class="food-tags"><span class="food-tag ft-meal">點心</span><span class="food-tag ft-quick">快閃OK</span></div></div>
+    <div class="food-item"><div class="food-item-head"><span class="food-name">尾道醬油</span><span class="food-jp">尾道しょうゆ</span><span class="food-stars">★☆☆</span></div><div class="food-desc">尾道特產甜口醬油，商店街小瓶裝適合帶回台灣，是不佔行李的在地伴手禮。</div><div class="food-tags"><span class="food-tag ft-souvenir">伴手禮</span></div></div>
   </div>
 </div>
 </div>
@@ -855,6 +903,13 @@ html, body {
     <div class="spot-card" data-primary="must"><div class="spot-time-badge">傍晚</div><div class="spot-name">道後溫泉本館</div><div class="spot-en">Dogo Onsen Honkan</div><div class="spot-desc">日本最古老溫泉，明治 28 年建成，是宮崎駿神隱少女的創作靈感。目前部分修繕中，外觀與部分浴場仍可使用。</div><div class="spot-footer"><div class="spot-tags"><span class="tag tag-must">必訪</span><span class="tag tag-activity">體驗</span></div><a class="spot-map-btn" href="https://maps.google.com/?q=Dogo+Onsen+Honkan+Matsuyama" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>地圖</a></div></div>
     <div class="spot-card" data-primary="food"><div class="spot-time-badge">傍晚</div><div class="spot-name">道後溫泉街</div><div class="spot-en">Dogo Onsen Area</div><div class="spot-desc">溫泉旅館街熱鬧非凡，有鯛魚燒、みかん果汁現榨攤、土產店，穿著浴衣漫步是標準道後體驗。</div><div class="spot-footer"><div class="spot-tags"><span class="tag tag-food">美食</span></div><a class="spot-map-btn" href="https://maps.google.com/?q=Dogo+Onsen+Shopping+Street" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>地圖</a></div></div>
   </div>
+  <div class="section-label" style="margin-top:1rem;">在地美食</div>
+  <div class="food-grid">
+    <div class="food-item"><div class="food-item-head"><span class="food-name">大三島海鮮</span><span class="food-jp">大三島 鯛・鮑魚</span><span class="food-stars">★★★</span></div><div class="food-desc">大三島盛產真鯛、鮑魚，大山祇神社周邊食堂供應新鮮海鮮套餐，是大三島組午餐的理想選擇。</div><div class="food-tags"><span class="food-tag ft-meal">午餐</span><span class="food-tag ft-local">大三島限定</span></div></div>
+    <div class="food-item"><div class="food-item-head"><span class="food-name">愛媛鯛魚飯</span><span class="food-jp">愛媛鯛めし</span><span class="food-stars">★★★</span></div><div class="food-desc">松山式：生鯛片淋蛋黃醬汁拌飯，清甜爽口；宇和島式更濃郁。抵達松山後晚餐必吃。</div><div class="food-tags"><span class="food-tag ft-meal">晚餐</span><span class="food-tag ft-must">必吃</span></div></div>
+    <div class="food-item"><div class="food-item-head"><span class="food-name">じゃこ天</span><span class="food-jp">魚漿炸魚板</span><span class="food-stars">★★★</span></div><div class="food-desc">愛媛最具代表性小吃，小魚漿炸成圓餅，道後溫泉街有販售，邊走邊吃方便又美味。</div><div class="food-tags"><span class="food-tag ft-quick">快閃OK</span><span class="food-tag ft-local">愛媛限定</span></div></div>
+    <div class="food-item"><div class="food-item-head"><span class="food-name">松山鍋焼烏龍麵</span><span class="food-jp">鍋焼きうどん</span><span class="food-stars">★★☆</span></div><div class="food-desc">個人土鍋上桌，湯甜麵Q，配蝦天婦羅・半熟蛋・魚板，是松山特有吃法，隔天午餐行程亦有安排。</div><div class="food-tags"><span class="food-tag ft-meal">晚餐</span></div></div>
+  </div>
 </div>
 </div>
 
@@ -878,6 +933,13 @@ html, body {
     <div class="spot-card" data-primary="activity"><div class="spot-time-badge">傍晚</div><div class="spot-name">大街道／銀天街</div><div class="spot-en">Okaido / Gintengai</div><div class="spot-desc">松山最熱鬧的兩條連通商店街，大街道以百貨與餐飲為主，銀天街則是室內拱廊型街道，藥妝、雜貨、咖啡廳一應俱全，傍晚人潮最旺，是晚餐前閒逛的好去處。</div><div class="spot-footer"><div class="spot-tags"><span class="tag tag-activity">體驗</span><span class="tag tag-food">美食</span></div><a class="spot-map-btn" href="https://maps.google.com/?q=大街道+松山+愛媛" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>地圖</a></div></div>
     <div class="spot-card" data-primary="food"><div class="spot-time-badge">點心</div><div class="spot-name">柑橘類甜點</div><div class="spot-en">Ehime Citrus Sweets · 六時屋</div><div class="spot-desc">愛媛是日本最大柑橘產地，甜點種類豐富。老舖「六時屋」的みかんタルト（橘子塔）是松山百年名物，外皮酥脆內餡清爽，大街道與道後皆有門市，最適合當伴手禮。</div><div class="spot-footer"><div class="spot-tags"><span class="tag tag-food">美食</span></div><a class="spot-map-btn" href="https://maps.google.com/?q=六時屋+松山+大街道" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>地圖</a></div></div>
   </div>
+  <div class="section-label" style="margin-top:1rem;">在地美食</div>
+  <div class="food-grid">
+    <div class="food-item"><div class="food-item-head"><span class="food-name">じゃこ天</span><span class="food-jp">魚漿炸魚板</span><span class="food-stars">★★★</span></div><div class="food-desc">大街道・ロープウェー街均有販售，可邊走邊嚐，比超市版更新鮮，是愛媛最具代表性零食。</div><div class="food-tags"><span class="food-tag ft-quick">快閃OK</span><span class="food-tag ft-local">愛媛限定</span></div></div>
+    <div class="food-item"><div class="food-item-head"><span class="food-name">現榨みかんジュース</span><span class="food-jp">みかん立飲み</span><span class="food-stars">★★★</span></div><div class="food-desc">ロープウェー街攤販現榨柑橘汁，一杯 ¥300–500，酸甜清爽，走累了最消暑。</div><div class="food-tags"><span class="food-tag ft-drink">飲料</span><span class="food-tag ft-quick">快閃OK</span></div></div>
+    <div class="food-item"><div class="food-item-head"><span class="food-name">道後ビール</span><span class="food-jp">道後地方精釀啤酒</span><span class="food-stars">★★☆</span></div><div class="food-desc">道後溫泉區地方精釀啤酒，泡完溫泉後小酌一杯，溫泉街門口即可購買。</div><div class="food-tags"><span class="food-tag ft-drink">下午茶</span><span class="food-tag ft-quick">快閃OK</span></div></div>
+    <div class="food-item"><div class="food-item-head"><span class="food-name">一六タルト</span><span class="food-jp">柚子口味捲糕</span><span class="food-stars">★★☆</span></div><div class="food-desc">松山另一百年名物，柚子風味羊羹捲入海綿蛋糕，與六時屋みかん塔並列最佳伴手禮。大街道有門市。</div><div class="food-tags"><span class="food-tag ft-souvenir">伴手禮</span><span class="food-tag ft-quick">快閃OK</span></div></div>
+  </div>
 </div>
 </div>
 
@@ -898,6 +960,13 @@ html, body {
     <div class="spot-card" data-primary="activity"><div class="spot-time-badge">出發前</div><div class="spot-name">福山駅前商店街 enu</div><div class="spot-en">enu Fukuyama</div><div class="spot-desc">福山站直結的購物中心，集合藥妝、服飾、雜貨、餐飲與超市，是離開福山前補貨或用餐的便利選擇，不用特地出站即可逛完。</div><div class="spot-footer"><div class="spot-tags"><span class="tag tag-food">美食</span><span class="tag tag-activity">購物</span></div><a class="spot-map-btn" href="https://maps.google.com/?q=enu+Fukuyama+Station" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>地圖</a></div></div>
     <div class="spot-card" data-primary="history"><div class="spot-time-badge">傍晚 抵達</div><div class="spot-name">三原城跡</div><div class="spot-en">Mihara Castle Ruins</div><div class="spot-desc">JR 三原車站即在城跡旁，月形石垣直接建於海上，是著名「水城」，車站月台就在城跡上方，散步即可參觀，免費。</div><div class="spot-footer"><div class="spot-tags"><span class="tag tag-history">歷史</span></div><a class="spot-map-btn" href="https://maps.google.com/?q=Mihara+Castle+Ruins+Hiroshima" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>地圖</a></div></div>
     <div class="spot-card" data-primary="food"><div class="spot-time-badge">晚上</div><div class="spot-name">永旺 三原店</div><div class="spot-en">AEON Mihara</div><div class="spot-desc">這間 Aeon 營業到晚上 21:00（超市部分可能更晚），是回台前買零食、泡麵、調味料的最佳去處。</div><div class="spot-footer"><div class="spot-tags"><span class="tag tag-food">美食</span></div><a class="spot-map-btn" href="https://www.google.com/maps/place/%E6%B0%B8%E6%97%BA+%E4%B8%89%E5%8E%9F%E5%BA%97/@34.3988087,133.0845584,17z/data=!3m1!4b1!4m6!3m5!1s0x3550566d7ed3f2ab:0x7a65c7911afb10a7!8m2!3d34.3988087!4d133.0871333!16s%2Fg%2F1231ggzk?entry=tts&skid=15764e8a-c83d-49d1-bea8-0833390a3da5" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>地圖</a></div></div>
+  </div>
+  <div class="section-label" style="margin-top:1rem;">在地美食</div>
+  <div class="food-grid">
+    <div class="food-item"><div class="food-item-head"><span class="food-name">うずみ</span><span class="food-jp">福山鄉土料理</span><span class="food-stars">★★★</span></div><div class="food-desc">白飯底下藏著豆腐、蝦、章魚等食材，須翻挖而食，是福山獨有的體驗式鄉土料理，午餐必試。</div><div class="food-tags"><span class="food-tag ft-meal">午餐</span><span class="food-tag ft-must">必吃</span><span class="food-tag ft-local">福山限定</span></div></div>
+    <div class="food-item"><div class="food-item-head"><span class="food-name">ガス天</span><span class="food-jp">弓蝦炸天婦羅</span><span class="food-stars">★★★</span></div><div class="food-desc">三原名物，さるえび（弓蝦）炸成天婦羅，外酥內鮮，三原市場・定食屋可吃到，晚餐推薦。</div><div class="food-tags"><span class="food-tag ft-meal">晚餐</span><span class="food-tag ft-must">必吃</span><span class="food-tag ft-local">三原限定</span></div></div>
+    <div class="food-item"><div class="food-item-head"><span class="food-name">鯛ちくわ</span><span class="food-jp">鯛魚竹輪</span><span class="food-stars">★★☆</span></div><div class="food-desc">福山沿海特色竹輪，以鯛魚漿製作，enu 商場・市場可找到，小巧方便攜帶。</div><div class="food-tags"><span class="food-tag ft-quick">快閃OK</span><span class="food-tag ft-souvenir">伴手禮</span></div></div>
+    <div class="food-item"><div class="food-item-head"><span class="food-name">保命酒</span><span class="food-jp">鞆之浦藥膳甜酒</span><span class="food-stars">★★☆</span></div><div class="food-desc">鞆之浦傳統藥膳甜酒，以十六種藥草浸製，養生風味獨特，小瓶裝適合帶回作伴手禮。</div><div class="food-tags"><span class="food-tag ft-souvenir">伴手禮</span><span class="food-tag ft-local">鞆之浦</span></div></div>
   </div>
 </div>
 </div>
